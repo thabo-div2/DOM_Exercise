@@ -1,6 +1,6 @@
-var form = document.getElementById("addForm");
-var itemList = document.getElementById("items");
-var filter = document.getElementById("filter");
+let form = document.getElementById("addForm");
+let itemList = document.getElementById("items");
+let filter = document.getElementById("filter");
 
 // Form submit event
 form.addEventListener("submit", addItem);
@@ -14,17 +14,17 @@ function addItem(e) {
   e.preventDefault();
 
   // Get input value
-  var newItem = document.getElementById("item").value;
+  let newItem = document.getElementById("item").value;
 
   // Create a new li
-  var li = document.createElement("li");
+  let li = document.createElement("li");
   // Add Class
   li.className = "list-group-item";
   // Append the text
   li.appendChild(document.createTextNode(newItem));
 
   // Del btn
-  var del = document.createElement("button");
+  let del = document.createElement("button");
 
   del.className = "btn btn-danger btn-sm float-right delete";
 
@@ -38,7 +38,7 @@ function addItem(e) {
 function removeItem(e) {
   if (e.target.classList.contains("delete")) {
     if (confirm("Are You Sure")) {
-      var li = e.target.parentElement;
+      let li = e.target.parentElement;
       itemList.removeChild(li);
     }
   }
@@ -46,9 +46,9 @@ function removeItem(e) {
 
 function filterItems(e) {
   // convert text to lowercase
-  var text = e.target.value.toLowerCase();
+  let text = e.target.value.toLowerCase();
   // Get lis
-  var items = itemList.getElementsByTagName("li");
+  let items = itemList.getElementsByTagName("li");
   // Convert to an array
   Array.from(items).forEach(function (item) {
     var itemName = item.firstChild.textContent;
